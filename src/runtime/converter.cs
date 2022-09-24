@@ -84,7 +84,7 @@ namespace Python.Runtime {
             if (op == stringType) {
                 return Runtime.PyUnicodeType;
             }
-#if (PYTHON32 || PYTHON33 || PYTHON34 || PYTHON35)
+#if (PYTHON32 || PYTHON33 || PYTHON34 || PYTHON35 || PYTHON39)
             else if ((op == int16Type) ||
                      (op == int32Type) ||
                      (op == int64Type)) {
@@ -444,7 +444,7 @@ namespace Python.Runtime {
                 return true;
 
             case TypeCode.Int32:
-#if !(PYTHON32 || PYTHON33 || PYTHON34 || PYTHON35)
+#if !(PYTHON32 || PYTHON33 || PYTHON34 || PYTHON35 || PYTHON39)
                 // Trickery to support 64-bit platforms.
                 if (IntPtr.Size == 4) {
                     op = Runtime.PyNumber_Int(value);
@@ -496,7 +496,7 @@ namespace Python.Runtime {
                 return true;
 
             case TypeCode.Byte:
-#if (PYTHON32 || PYTHON33 || PYTHON34 || PYTHON35)
+#if (PYTHON32 || PYTHON33 || PYTHON34 || PYTHON35 || PYTHON39)
                 if (Runtime.PyObject_TypeCheck(value, Runtime.PyBytesType))
                 {
                     if (Runtime.PyBytes_Size(value) == 1)
@@ -536,7 +536,7 @@ namespace Python.Runtime {
                 return true;
 
             case TypeCode.SByte:
-#if (PYTHON32 || PYTHON33 || PYTHON34 || PYTHON35)
+#if (PYTHON32 || PYTHON33 || PYTHON34 || PYTHON35 || PYTHON39)
                 if (Runtime.PyObject_TypeCheck(value, Runtime.PyBytesType)) {
                     if (Runtime.PyBytes_Size(value) == 1) {
                         op = Runtime.PyBytes_AS_STRING(value);
@@ -574,7 +574,7 @@ namespace Python.Runtime {
                 return true;
 
             case TypeCode.Char:
-#if (PYTHON32 || PYTHON33 || PYTHON34 || PYTHON35)
+#if (PYTHON32 || PYTHON33 || PYTHON34 || PYTHON35 || PYTHON39)
                 if (Runtime.PyObject_TypeCheck(value, Runtime.PyBytesType)) {
                     if (Runtime.PyBytes_Size(value) == 1) {
                         op = Runtime.PyBytes_AS_STRING(value);

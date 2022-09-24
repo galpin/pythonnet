@@ -9,7 +9,7 @@
 // WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
 // FOR A PARTICULAR PURPOSE.
 // ==========================================================================
-#if (PYTHON35 || PYTHON39)
+#if (PYTHON39)
 using System;
 using System.Collections;
 using System.Collections.Specialized;
