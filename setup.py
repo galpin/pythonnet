@@ -74,7 +74,8 @@ def _find_msbuild_tool(tool="msbuild.exe", use_windows_sdk=False):
             except WindowsError:
                 pass
             finally:
-                hkey.Close()
+                if hkey:
+                    hkey.Close()
     finally:
         hreg.Close()
 
